@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Streamgraph Chart</title>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="streamgraph.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+    <script type="text/javascript">
+
+      var chart1 = document.getElementById("chart1");
+      
+      d3.streamgraph(chart1, {
+        'height': 450,
+        'width': 800,
+        'dataUrl' : 'data.csv'
+      });
+
+      function update1() {
+        d3.streamgraph(chart1, "updateData", "data1.csv");
+      };
+
+       function update2() {
+        d3.streamgraph(chart1, "updateData", "data.csv");
+      };
+
+      function makeSineWave() {
+        var num = 40;
+        var data = d3.range(num).map(function(i) {
+                return {x: i / (num-1), y: (Math.sin(i / 2) + 2) / 4};
+            });
+
+        return data;
+      };
+      
+    </script>
+    <button id="btn1" onclick="update1()">data 1</button>
+    <button id="btn2" onclick="update2()">data 2</button>
+  </body>
+</html>
