@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Streamgraph Chart</title>
-    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="d3.js"></script>
     <script type="text/javascript" src="streamgraph.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -17,7 +17,16 @@
       d3.streamgraph(chart1, {
         'height': 450,
         'width': 800,
-        'dataUrl' : 'data.csv'
+        'dataUrl' : 'data.csv',
+        'dataStructure' : {
+            'x' : 'x', 
+            'y' : 'y',
+            'key' : 'group'
+        },
+        'scale' : {
+            'x' : 'date',
+            'y' : 'linear'
+        }
       });
 
       function update1() {
