@@ -687,7 +687,6 @@ var extend = extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                 }
             }
 
-            
             // define the stack layout
             if (!container.stack) {
                 container.stack = d3.layout.stack()
@@ -702,7 +701,6 @@ var extend = extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                     .key(function(d) { return d[container.opts.dataStructure.key]; });
             }
 
-            //console.log(container.nest);
             var nestedData = container.nest.entries(data);
             
             // if the key is undefined then set it to 'none'
@@ -715,10 +713,8 @@ var extend = extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                 }
             }
             container.dataNest = container.checkMissingValues(nestedData);
-            //console.log(nestedData);
             container.dataLayers = container.stack(container.dataNest);
             //console.log(container.dataLayers);
-            //console.log('stacked it');
 
             return data;
         },
@@ -787,7 +783,7 @@ var extend = extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                 duplicates[hash] = true;
                 return !isDup;
             });
-            
+
             // fill in any missing values ifrom the x range
             checkGroups(xRange);
 
